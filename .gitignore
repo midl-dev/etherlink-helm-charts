@@ -1,0 +1,16 @@
+# Terraform
+.DS_Store
+.terraform
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+
+# Helmsman
+.helmsman-tmp
+
+# Ignore archives
+*.tgz
+
+# IDE
+.idea
+.vscode
