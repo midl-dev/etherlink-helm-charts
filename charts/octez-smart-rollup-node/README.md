@@ -1,6 +1,6 @@
 # octez-smart-rollup-node
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezo soctez-smart-rollup-node
 
@@ -49,14 +49,14 @@ Tezo soctez-smart-rollup-node
 | initDownloadSnapshot.image.repository | string | `"curlimages/curl"` |  |
 | initDownloadSnapshot.image.tag | string | `"8.11.0"` |  |
 | initDownloadSnapshot.resources | object | `{}` | Resource requests and limits |
-| initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/rollup.snapshot\n"` |  |
+| initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n echo \"Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/rollup.snapshot\n"` |  |
 | initDownloadSnapshot.url | string | `"https://snapshots.eu.tzinit.org/etherlink-mainnet/eth-mainnet.full"` |  |
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
 | initImportSnapshot.image.tag | string | `"octez-v21.0"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
-| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  octez-smart-rollup-node -E {{ .Values.octezEndpoint }} snapshot import /data/rollup.snapshot --data-dir /data --no-check;\n  rm -vf /data/rollup.snapshot\n"` |  |
+| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-smart-rollup-node -E {{ .Values.octezEndpoint }} snapshot import /data/rollup.snapshot --data-dir /data --no-check;\n  rm -vf /data/rollup.snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
 | metricsPort | int | `9933` | Metrics Port |
 | nameOverride | string | `""` | Overrides the chart's name |

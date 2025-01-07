@@ -97,6 +97,9 @@ spec:
             {{- end }}
             - name: storage
               mountPath: "/data"
+            - name: config
+              mountPath: "/config"
+              readOnly: true
           ports:
             - name: http
               containerPort: {{ .Values.httpPort }}

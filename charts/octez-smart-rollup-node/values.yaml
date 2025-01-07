@@ -295,6 +295,7 @@ initDownloadSnapshot:
     - sh
     - -c
     - >
+     echo "Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}";
      curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/rollup.snapshot
 
   # -- Resource requests and limits
@@ -319,6 +320,7 @@ initImportSnapshot:
     - sh
     - -c
     - >
+      echo "Importing snapshot from {{ .Values.initDownloadSnapshot.url }}";
       octez-smart-rollup-node -E {{ .Values.octezEndpoint }} snapshot import /data/rollup.snapshot --data-dir /data --no-check;
       rm -vf /data/rollup.snapshot
 
