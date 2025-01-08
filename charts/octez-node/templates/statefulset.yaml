@@ -51,7 +51,7 @@ spec:
       {{ toYaml .Values.initDownloadSnapshot.resources | nindent 12 }}
         volumeMounts:
           - name: storage
-            mountPath: "/data"
+            mountPath: "/var/tezos"
       {{- end }}
       {{- if .Values.initChownData.enabled }}
       - name: init-chown-data
@@ -60,12 +60,12 @@ spec:
         securityContext:
           runAsNonRoot: false
           runAsUser: 0
-        command: ["chown", "-R", "{{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.runAsGroup }}", "/data"]
+        command: ["chown", "-R", "{{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.runAsGroup }}", "/var/tezos"]
         resources:
       {{ toYaml .Values.initChownData.resources | nindent 12 }}
         volumeMounts:
           - name: storage
-            mountPath: "/data"
+            mountPath: "/var/tezos"
       {{- end }}
       {{- if .Values.initImportSnapshot.enabled }}
       - name: init-import-snapshot
@@ -77,7 +77,7 @@ spec:
           {{ toYaml .Values.initImportSnapshot.resources | nindent 12 }}
         volumeMounts:
            - name: storage
-             mountPath: "/data"
+             mountPath: "/var/tezos"
       {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -96,7 +96,7 @@ spec:
               {{ toYaml .Values.extraVolumeMounts | nindent 12}}
             {{- end }}
             - name: storage
-              mountPath: "/data"
+              mountPath: "/var/tezos"
             - name: config
               mountPath: "/config"
               readOnly: true

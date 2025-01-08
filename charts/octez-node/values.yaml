@@ -27,10 +27,10 @@ config: |
     "shell": {
       "history_mode": "full"
     },
-    "data-dir": "/data",
+    "data-dir": "/var/tezos/data",
     "rpc": {
       "listen-addrs": [
-        "0.0.0.0:8732",
+        "0.0.0.0:8732"
       ],
       "acl": [
         {
@@ -56,11 +56,11 @@ defaultCommandTemplate: |
   - sh
   - -c
   - >
-    cp /config/config.json /data;
+    cp /config/config.json /var/tezos/data;
 
     octez-node
     run
-    --data-dir /data
+    --data-dir /var/tezos/data
   {{- range .Values.extraArgs }}
     {{ tpl . $ }}
   {{- end }}
@@ -310,7 +310,7 @@ initDownloadSnapshot:
     - -c
     - >
      echo "Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}";
-     curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/snapshot
+     curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /var/tezos/snapshot
 
   # -- Resource requests and limits
   resources: {}
@@ -335,7 +335,8 @@ initImportSnapshot:
     - -c
     - >
       echo "Importing snapshot from {{ .Values.initDownloadSnapshot.url }}";
-      octez-node snapshot import /data/snapshot --data-dir /data --no-check;
+      [[ ! -d /var/tezos/data ]] && mkdir /var/tezos/data;
+      octez-node snapshot import /var/tezos/snapshot --data-dir /var/tezos/data --no-check;
       rm -vf /data/snapshot
 
   resources: {}

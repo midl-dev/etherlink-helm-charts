@@ -1,6 +1,6 @@
 # octez-node
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-node
 
@@ -16,7 +16,7 @@ Tezos octez-node
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity configuration for pods |
 | annotations | object | `{}` | Annotations for the StatefulSet |
-| config | string | `"{\n  \"metrics_addr\": [\n    \"0.0.0.0:9932\"\n  ],\n  \"shell\": {\n    \"history_mode\": \"full\"\n  },\n  \"data-dir\": \"/data\",\n  \"rpc\": {\n    \"listen-addrs\": [\n      \"0.0.0.0:8732\",\n    ],\n    \"acl\": [\n      {\n        \"address\": \"0.0.0.0\",\n        \"blacklist\": []\n      }\n    ]\n  },\n  \"p2p\": {\n    \"bootstrap-peers\": [\n      \"boot.tzinit.org\",\n      \"boot.tzboot.net\",\n      \"boot.tzbeta.net\"\n    ],\n    \"listen-addr\": \"[::]:9732\"\n  },\n  \"network\": \"mainnet\"\n}\n"` |  |
+| config | string | `"{\n  \"metrics_addr\": [\n    \"0.0.0.0:9932\"\n  ],\n  \"shell\": {\n    \"history_mode\": \"full\"\n  },\n  \"data-dir\": \"/var/tezos/data\",\n  \"rpc\": {\n    \"listen-addrs\": [\n      \"0.0.0.0:8732\"\n    ],\n    \"acl\": [\n      {\n        \"address\": \"0.0.0.0\",\n        \"blacklist\": []\n      }\n    ]\n  },\n  \"p2p\": {\n    \"bootstrap-peers\": [\n      \"boot.tzinit.org\",\n      \"boot.tzboot.net\",\n      \"boot.tzbeta.net\"\n    ],\n    \"listen-addr\": \"[::]:9732\"\n  },\n  \"network\": \"mainnet\"\n}\n"` |  |
 | containerSecurityContext | object | See `values.yaml` | The security context for containers |
 | customCommand | list | `[]` | Legacy way of overwriting the default command. You may prefer to change defaultCommandTemplate instead. |
 | defaultCommandTemplate | string | See `values.yaml` | Template used for the default command |
@@ -49,14 +49,14 @@ Tezos octez-node
 | initDownloadSnapshot.image.repository | string | `"curlimages/curl"` |  |
 | initDownloadSnapshot.image.tag | string | `"8.11.0"` |  |
 | initDownloadSnapshot.resources | object | `{}` | Resource requests and limits |
-| initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n echo \"Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/snapshot\n"` |  |
+| initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n echo \"Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /var/tezos/snapshot\n"` |  |
 | initDownloadSnapshot.url | string | `"https://snapshots.eu.tzinit.org/mainnet/full"` |  |
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
 | initImportSnapshot.image.tag | string | `"octez-v21.0"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
-| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-node snapshot import /data/snapshot --data-dir /data --no-check;\n  rm -vf /data/snapshot\n"` |  |
+| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  [[ ! -d /var/tezos/data ]] && mkdir /var/tezos/data;\n  octez-node snapshot import /var/tezos/snapshot --data-dir /var/tezos/data --no-check;\n  rm -vf /data/snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
 | metricsPort | int | `9932` | Metrics Port |
 | nameOverride | string | `""` | Overrides the chart's name |
