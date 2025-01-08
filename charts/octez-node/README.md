@@ -1,6 +1,6 @@
 # octez-node
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-node
 
@@ -56,7 +56,7 @@ Tezos octez-node
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
 | initImportSnapshot.image.tag | string | `"octez-v21.0"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
-| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-node snapshot import /data/snapshot;\n  rm -vf /data/snapshot\n"` |  |
+| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-node snapshot import /data/snapshot --data-dir /data --no-check;\n  rm -vf /data/snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
 | metricsPort | int | `9932` | Metrics Port |
 | nameOverride | string | `""` | Overrides the chart's name |

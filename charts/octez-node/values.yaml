@@ -335,7 +335,7 @@ initImportSnapshot:
     - -c
     - >
       echo "Importing snapshot from {{ .Values.initDownloadSnapshot.url }}";
-      octez-node snapshot import /data/snapshot;
+      octez-node snapshot import /data/snapshot --data-dir /data --no-check;
       rm -vf /data/snapshot
 
   resources: {}
