@@ -1,0 +1,8 @@
+apiVersion: v2
+name: octez-node
+description: Tezos octez-node
+home: https://tezos.com/
+sources:
+  - https://gitlab.com/tezos/tezos
+type: application
+version: 0.1.0
