@@ -301,7 +301,7 @@ initDownloadSnapshot:
     tag: "8.11.0"
     pullPolicy: IfNotPresent
 
-  url: "https://snapshotter-sandbox.nomadic-labs.eu/etherlink-mainnet/evm-snapshot-sr1Ghq66tYK9y-5648964.gz"
+  url: "https://snapshotter-sandbox.nomadic-labs.eu/etherlink-mainnet/evm-snapshot-sr1Ghq66tYK9y-latest.gz"
 
   snapshotDownloadCmdTemplate: |
     - sh

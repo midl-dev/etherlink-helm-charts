@@ -1,6 +1,6 @@
 # octez-evm-node
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-evm-node
 
@@ -50,7 +50,7 @@ Tezos octez-evm-node
 | initDownloadSnapshot.image.tag | string | `"8.11.0"` |  |
 | initDownloadSnapshot.resources | object | `{}` | Resource requests and limits |
 | initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n echo \"Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/rollup.snapshot\n"` |  |
-| initDownloadSnapshot.url | string | `"https://snapshotter-sandbox.nomadic-labs.eu/etherlink-mainnet/evm-snapshot-sr1Ghq66tYK9y-5648964.gz"` |  |
+| initDownloadSnapshot.url | string | `"https://snapshotter-sandbox.nomadic-labs.eu/etherlink-mainnet/evm-snapshot-sr1Ghq66tYK9y-latest.gz"` |  |
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
