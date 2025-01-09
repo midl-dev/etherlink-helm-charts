@@ -1,8 +1,0 @@
-apiVersion: v2
-name: octez-evm-node
-description: Tezos octez-evm-node
-home: https://docs.etherlink.com/
-sources:
-  - https://gitlab.com/tezos/tezos
-type: application
-version: 0.1.0
