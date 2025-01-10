@@ -336,6 +336,7 @@ initImportSnapshot:
     - >
       echo "Importing snapshot from {{ .Values.initDownloadSnapshot.url }}";
       [[ ! -d /var/tezos/data ]] && mkdir /var/tezos/data;
+      cp /config/config.json /var/tezos/data;
       octez-node snapshot import /var/tezos/snapshot --data-dir /var/tezos/data --no-check;
       rm -vf /data/snapshot
 

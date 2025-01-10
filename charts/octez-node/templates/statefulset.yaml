@@ -78,6 +78,9 @@ spec:
         volumeMounts:
            - name: storage
              mountPath: "/var/tezos"
+           - name: config
+             mountPath: "/config"
+             readOnly: true
       {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
