@@ -11,7 +11,7 @@ image:
   # -- geth container image repository
   repository: tezos/tezos
   # -- geth container image tag
-  tag: octez-v21.0
+  tag: octez-v21.3
   # -- geth container pull policy
   pullPolicy: IfNotPresent
 
