@@ -1,6 +1,6 @@
 # octez-smart-rollup-node
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezo soctez-smart-rollup-node
 
@@ -31,7 +31,7 @@ Tezo soctez-smart-rollup-node
 | httpPort | int | `8932` | HTTP Port |
 | image.pullPolicy | string | `"IfNotPresent"` | geth container pull policy |
 | image.repository | string | `"tezos/tezos"` | geth container image repository |
-| image.tag | string | `"octez-v21.0"` | geth container image tag |
+| image.tag | string | `"octez-v21.3"` | geth container image tag |
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
