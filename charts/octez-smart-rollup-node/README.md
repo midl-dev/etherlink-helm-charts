@@ -1,6 +1,6 @@
 # octez-smart-rollup-node
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezo soctez-smart-rollup-node
 
@@ -54,7 +54,7 @@ Tezo soctez-smart-rollup-node
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
-| initImportSnapshot.image.tag | string | `"octez-v21.0"` |  |
+| initImportSnapshot.image.tag | string | `"octez-v21.3"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
 | initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-smart-rollup-node -E {{ .Values.octezEndpoint }} snapshot import /data/rollup.snapshot --data-dir /data --no-check;\n  rm -vf /data/rollup.snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |

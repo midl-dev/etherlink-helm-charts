@@ -5,4 +5,4 @@ home: https://docs.tezos.com/architecture/smart-rollups
 sources:
   - https://gitlab.com/tezos/tezos
 type: application
-version: 0.1.2
+version: 0.1.3

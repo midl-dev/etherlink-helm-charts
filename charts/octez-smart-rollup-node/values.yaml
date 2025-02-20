@@ -313,7 +313,7 @@ initImportSnapshot:
 
   image:
     repository: tezos/tezos
-    tag: octez-v21.0
+    tag: octez-v21.3
     pullPolicy: IfNotPresent
 
   snapshotImportCmdTemplate: |

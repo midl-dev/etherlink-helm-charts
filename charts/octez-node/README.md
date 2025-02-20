@@ -1,6 +1,6 @@
 # octez-node
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-node
 
@@ -54,7 +54,7 @@ Tezos octez-node
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
-| initImportSnapshot.image.tag | string | `"octez-v21.0"` |  |
+| initImportSnapshot.image.tag | string | `"octez-v21.3"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
 | initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  [[ ! -d /var/tezos/data ]] && mkdir /var/tezos/data;\n  cp /config/config.json /var/tezos/data;\n  octez-node snapshot import /var/tezos/snapshot --data-dir /var/tezos/data --no-check;\n  rm -vf /data/snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
