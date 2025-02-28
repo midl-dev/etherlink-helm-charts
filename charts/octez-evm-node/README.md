@@ -1,6 +1,6 @@
 # octez-evm-node
 
-![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-evm-node
 
@@ -58,7 +58,6 @@ Tezos octez-evm-node
 | initImportSnapshot.resources | object | `{}` |  |
 | initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-evm-node snapshot import /data/rollup.snapshot --data-dir /data;\n  rm -vf /data/rollup.snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
-| metricsPort | int | `8545` | Metrics Port |
 | nameOverride | string | `""` | Overrides the chart's name |
 | nodeSelector | object | `{}` | Node selector for pods |
 | persistence.accessModes | list | `["ReadWriteOnce"]` | Access mode for the volume claim template |

@@ -104,9 +104,6 @@ spec:
             - name: http
               containerPort: {{ .Values.httpPort }}
               protocol: TCP
-            - name: metrics
-              containerPort: {{ .Values.metricsPort }}
-              protocol: TCP
           startupProbe:
             {{- toYaml .Values.startupProbe | nindent 12 }}
           livenessProbe:

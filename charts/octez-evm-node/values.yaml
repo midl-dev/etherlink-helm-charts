@@ -126,9 +126,6 @@ readinessProbe:
 # -- HTTP Port
 httpPort: 8545
 
-# -- Metrics Port
-metricsPort: 8545
-
 # -- Node selector for pods
 nodeSelector: {}
 
