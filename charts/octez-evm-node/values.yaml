@@ -11,7 +11,7 @@ image:
   # -- geth container image repository
   repository: tezos/tezos
   # -- geth container image tag
-  tag: octez-evm-node-v0.17
+  tag: octez-evm-node-v0.18
   # -- geth container pull policy
   pullPolicy: IfNotPresent
 
@@ -125,6 +125,9 @@ readinessProbe:
 
 # -- HTTP Port
 httpPort: 8545
+
+# -- Metrics Port
+metricsPort: 8545
 
 # -- Node selector for pods
 nodeSelector: {}
@@ -325,7 +328,7 @@ initImportSnapshot:
 
   image:
     repository: tezos/tezos
-    tag: octez-evm-node-v0.17
+    tag: octez-evm-node-v0.18
     pullPolicy: IfNotPresent
 
   snapshotImportCmdTemplate: |
