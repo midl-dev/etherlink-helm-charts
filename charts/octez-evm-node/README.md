@@ -1,6 +1,6 @@
 # octez-evm-node
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-evm-node
 
@@ -20,7 +20,7 @@ Tezos octez-evm-node
 | containerSecurityContext | object | See `values.yaml` | The security context for containers |
 | customCommand | list | `[]` | Legacy way of overwriting the default command. You may prefer to change defaultCommandTemplate instead. |
 | defaultCommandTemplate | string | See `values.yaml` | Template used for the default command |
-| extraArgs | list | `[]` | Extra args for the geth container |
+| extraArgs | list | `[]` | Extra args for the evm container |
 | extraContainerPorts | list | `[]` | Additional ports for the main container |
 | extraContainers | list | `[]` | Additional containers |
 | extraEnv | list | `[]` | Additional env variables |
@@ -29,9 +29,9 @@ Tezos octez-evm-node
 | extraVolumes | list | `[]` | Additional volumes |
 | fullnameOverride | string | `""` | Overrides the chart's computed fullname |
 | httpPort | int | `8545` | HTTP Port |
-| image.pullPolicy | string | `"IfNotPresent"` | geth container pull policy |
-| image.repository | string | `"tezos/tezos"` | geth container image repository |
-| image.tag | string | `"octez-evm-node-v0.18"` | geth container image tag |
+| image.pullPolicy | string | `"IfNotPresent"` | evm container pull policy |
+| image.repository | string | `"tezos/tezos"` | evm container image repository |
+| image.tag | string | `"octez-evm-node-v0.20"` | evm container image tag |
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
@@ -54,7 +54,7 @@ Tezos octez-evm-node
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
-| initImportSnapshot.image.tag | string | `"octez-evm-node-v0.18"` |  |
+| initImportSnapshot.image.tag | string | `"octez-evm-node-v0.20"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
 | initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-evm-node snapshot import /data/rollup.snapshot --data-dir /data;\n  rm -vf /data/rollup.snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |

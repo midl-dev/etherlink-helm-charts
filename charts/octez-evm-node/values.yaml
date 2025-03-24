@@ -8,14 +8,14 @@ fullnameOverride: ""
 replicas: 1
 
 image:
-  # -- geth container image repository
+  # -- evm container image repository
   repository: tezos/tezos
-  # -- geth container image tag
-  tag: octez-evm-node-v0.18
-  # -- geth container pull policy
+  # -- evm container image tag
+  tag: octez-evm-node-v0.20
+  # -- evm container pull policy
   pullPolicy: IfNotPresent
 
-# -- Extra args for the geth container
+# -- Extra args for the evm container
 extraArgs: []
 #- --enable-performance-metrics
 
@@ -325,7 +325,7 @@ initImportSnapshot:
 
   image:
     repository: tezos/tezos
-    tag: octez-evm-node-v0.18
+    tag: octez-evm-node-v0.20
     pullPolicy: IfNotPresent
 
   snapshotImportCmdTemplate: |
