@@ -29,9 +29,9 @@ Tezos octez-node
 | extraVolumes | list | `[]` | Additional volumes |
 | fullnameOverride | string | `""` | Overrides the chart's computed fullname |
 | httpPort | int | `8732` | HTTP Port |
-| image.pullPolicy | string | `"IfNotPresent"` | geth container pull policy |
-| image.repository | string | `"tezos/tezos"` | geth container image repository |
-| image.tag | string | `"octez-v21.3"` | geth container image tag |
+| image.pullPolicy | string | `"IfNotPresent"` | octez container pull policy |
+| image.repository | string | `"tezos/tezos"` | octez container image repository |
+| image.tag | string | `"octez-v21.4"` | octez container image tag |
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
@@ -54,7 +54,7 @@ Tezos octez-node
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
-| initImportSnapshot.image.tag | string | `"octez-v21.3"` |  |
+| initImportSnapshot.image.tag | string | `"octez-v21.4"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
 | initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  [[ ! -d /var/tezos/data ]] && mkdir /var/tezos/data;\n  cp /config/config.json /var/tezos/data;\n  octez-node snapshot import /var/tezos/snapshot --data-dir /var/tezos/data --no-check;\n  rm -vf /data/snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |

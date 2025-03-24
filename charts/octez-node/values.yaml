@@ -8,11 +8,11 @@ fullnameOverride: ""
 replicas: 1
 
 image:
-  # -- geth container image repository
+  # -- octez container image repository
   repository: tezos/tezos
-  # -- geth container image tag
-  tag: octez-v21.3
-  # -- geth container pull policy
+  # -- octez container image tag
+  tag: octez-v21.4
+  # -- octez container pull policy
   pullPolicy: IfNotPresent
 
 # -- Extra args for the geth container
@@ -327,7 +327,7 @@ initImportSnapshot:
 
   image:
     repository: tezos/tezos
-    tag: octez-v21.3
+    tag: octez-v21.4
     pullPolicy: IfNotPresent
 
   snapshotImportCmdTemplate: |
