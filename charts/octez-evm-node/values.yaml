@@ -308,7 +308,7 @@ initDownloadSnapshot:
     - -c
     - >
      echo "Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}";
-     curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/rollup.snapshot
+     curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/evm.snapshot
 
   # -- Resource requests and limits
   resources: {}
@@ -334,7 +334,7 @@ initImportSnapshot:
     - >
       echo "Importing snapshot from {{ .Values.initDownloadSnapshot.url }}";
       octez-evm-node snapshot import /data/rollup.snapshot --data-dir /data;
-      rm -vf /data/rollup.snapshot
+      rm -vf /data/evm.snapshot
 
   resources: {}
   #  limits:

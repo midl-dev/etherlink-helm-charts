@@ -1,6 +1,6 @@
 # octez-evm-node
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-evm-node
 
@@ -49,14 +49,14 @@ Tezos octez-evm-node
 | initDownloadSnapshot.image.repository | string | `"curlimages/curl"` |  |
 | initDownloadSnapshot.image.tag | string | `"8.11.0"` |  |
 | initDownloadSnapshot.resources | object | `{}` | Resource requests and limits |
-| initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n echo \"Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/rollup.snapshot\n"` |  |
+| initDownloadSnapshot.snapshotDownloadCmdTemplate | string | `"- sh\n- -c\n- >\n echo \"Downloading snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n curl -LfsS {{ .Values.initDownloadSnapshot.url }} -o /data/evm.snapshot\n"` |  |
 | initDownloadSnapshot.url | string | `"https://snapshotter-sandbox.nomadic-labs.eu/etherlink-mainnet/evm-snapshot-sr1Ghq66tYK9y-latest.gz"` |  |
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
 | initImportSnapshot.image.tag | string | `"octez-evm-node-v0.20"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
-| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-evm-node snapshot import /data/rollup.snapshot --data-dir /data;\n  rm -vf /data/rollup.snapshot\n"` |  |
+| initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-evm-node snapshot import /data/rollup.snapshot --data-dir /data;\n  rm -vf /data/evm.snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
 | nameOverride | string | `""` | Overrides the chart's name |
 | nodeSelector | object | `{}` | Node selector for pods |
