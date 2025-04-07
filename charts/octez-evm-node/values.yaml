@@ -333,7 +333,7 @@ initImportSnapshot:
     - -c
     - >
       echo "Importing snapshot from {{ .Values.initDownloadSnapshot.url }}";
-      octez-evm-node snapshot import /data/rollup.snapshot --data-dir /data;
+      octez-evm-node snapshot import /data/evm.snapshot --data-dir /data;
       rm -vf /data/evm.snapshot
 
   resources: {}
