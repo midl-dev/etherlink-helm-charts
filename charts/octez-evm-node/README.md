@@ -1,6 +1,6 @@
 # octez-evm-node
 
-![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tezos octez-evm-node
 
@@ -31,7 +31,7 @@ Tezos octez-evm-node
 | httpPort | int | `8545` | HTTP Port |
 | image.pullPolicy | string | `"IfNotPresent"` | evm container pull policy |
 | image.repository | string | `"tezos/tezos"` | evm container image repository |
-| image.tag | string | `"octez-evm-node-v0.20"` | evm container image tag |
+| image.tag | string | `"octez-evm-node-v0.26"` | evm container image tag |
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
@@ -54,7 +54,7 @@ Tezos octez-evm-node
 | initImportSnapshot.enabled | bool | `true` | Init container to import snapshot rollup |
 | initImportSnapshot.image.pullPolicy | string | `"IfNotPresent"` |  |
 | initImportSnapshot.image.repository | string | `"tezos/tezos"` |  |
-| initImportSnapshot.image.tag | string | `"octez-evm-node-v0.20"` |  |
+| initImportSnapshot.image.tag | string | `"octez-evm-node-v0.26"` |  |
 | initImportSnapshot.resources | object | `{}` |  |
 | initImportSnapshot.snapshotImportCmdTemplate | string | `"- sh\n- -c\n- >\n  echo \"Importing snapshot from {{ .Values.initDownloadSnapshot.url }}\";\n  octez-evm-node snapshot import /data/evm.snapshot --data-dir /data;\n  rm -vf /data/evm.snapshot\n"` |  |
 | livenessProbe | object | See `values.yaml` | Liveness probe |

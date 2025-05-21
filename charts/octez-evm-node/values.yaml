@@ -11,7 +11,7 @@ image:
   # -- evm container image repository
   repository: tezos/tezos
   # -- evm container image tag
-  tag: octez-evm-node-v0.20
+  tag: octez-evm-node-v0.26
   # -- evm container pull policy
   pullPolicy: IfNotPresent
 
@@ -54,14 +54,13 @@ defaultCommandTemplate: |
   - sh
   - -c
   - >
-    cp /config/config.json /data;
-
     octez-evm-node run observer 
     --data-dir /data
     --rpc-addr 0.0.0.0
     --rpc-port 8545
     --cors-origins '*'
     --cors-headers '*'
+    --config-file /config/config.json
   {{- range .Values.extraArgs }}
     {{ tpl . $ }}
   {{- end }}
@@ -325,7 +324,7 @@ initImportSnapshot:
 
   image:
     repository: tezos/tezos
-    tag: octez-evm-node-v0.20
+    tag: octez-evm-node-v0.26
     pullPolicy: IfNotPresent
 
   snapshotImportCmdTemplate: |
