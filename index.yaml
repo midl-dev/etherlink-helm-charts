@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   octez-evm-node:
   - apiVersion: v2
+    created: "2025-07-25T18:44:17.890259486Z"
+    description: Tezos octez-evm-node
+    digest: 4ec657ea2bb18b27f4a9c4d83c1b9213c4a95956174a93ddda52a9caf49e4ecf
+    home: https://docs.etherlink.com/
+    name: octez-evm-node
+    sources:
+    - https://gitlab.com/tezos/tezos
+    type: application
+    urls:
+    - https://github.com/midl-dev/etherlink-helm-charts/releases/download/octez-evm-node-0.1.10/octez-evm-node-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
     created: "2025-05-21T08:41:15.008742771Z"
     description: Tezos octez-evm-node
     digest: 863ff4aa25f71bbf0f9fb92c1ff88c4ebfd03f2f0ffd75d9b0490a3051f4a53d
@@ -231,4 +243,4 @@ entries:
     urls:
     - https://github.com/midl-dev/etherlink-helm-charts/releases/download/octez-smart-rollup-node-0.1.1/octez-smart-rollup-node-0.1.1.tgz
     version: 0.1.1
-generated: "2025-05-21T08:41:15.008797996Z"
+generated: "2025-07-25T18:44:17.890327135Z"
